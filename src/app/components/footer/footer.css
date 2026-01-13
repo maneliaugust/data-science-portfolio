@@ -1,0 +1,115 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.footer-section {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    scroll-snap-align: end;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    height: 100%;
+}
+
+.container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-subtext {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.link-item svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.link-item:hover {
+    background: var(--accent-color);
+    color: #020617;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    transform: translateY(-5px);
+}
+
+.link-item:hover svg {
+    transform: scale(1.1);
+}
+
+/* Specific brand color classes removed - using uniform accent color for interactions */
+/*
+.link-item.email:hover,
+.link-item.linkedin:hover,
+.link-item.github:hover,
+.link-item.whatsapp:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #020617;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+*/
+
+.location p {
+    color: #64748b;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.copyright {
+    margin-top: 2rem;
+    color: #475569;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-section {
+        height: auto !important;
+        min-height: auto;
+        padding: 4rem 1rem;
+    }
+
+    .container {
+        gap: 2rem;
+    }
+
+    /* .links and .link-item styles removed to preserve circular icons on mobile */
+}
