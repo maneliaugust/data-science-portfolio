@@ -33,6 +33,15 @@
     /* For absolute positioning of mobile menu */
 }
 
+/* Nav Links Container (Desktop hidden/passthrough) */
+.nav-links-container {
+    display: flex;
+}
+
+.mobile-menu-header {
+    display: none;
+}
+
 /* Nav Links (Desktop) */
 .nav-links {
     display: flex;
@@ -40,14 +49,6 @@
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-.nav-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
 }
 
 .nav-links a:hover,
@@ -76,61 +77,93 @@
     transition: all 0.3s ease;
 }
 
-/* Mobile Responsive Styles */
+/* ... existing desktop styles ... */
+
+.nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+/* ... (removing the old mobile nav-links block and replacing with new container-based styles) ... */
+
 @media (max-width: 768px) {
     .container {
         justify-content: flex-end;
-        /* Align hamburger to right */
     }
 
     .menu-toggle {
         display: flex;
     }
 
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: auto;
-        background: rgba(15, 23, 42, 0.98);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Target the container as the card */
+    .nav-links-container {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        background: #ffffff;
+        /* Light theme card as per reference */
+        border-radius: 20px;
         flex-direction: column;
-        justify-content: flex-start;
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(-120%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000;
+        visibility: hidden;
+    }
+
+    .nav-links-container.active {
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        transform: translateY(-150%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 999;
-        padding: 1rem 0;
-        opacity: 0;
-        pointer-events: none;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f1f5f9;
     }
 
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
+    .mobile-brand {
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        color: #0f172a;
     }
 
-    .nav-links.active {
-        transform: translateY(0);
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        line-height: 1;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 0.5rem;
     }
 
-    .nav-links li {
-        margin: 1.5rem 0;
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: all 0.3s ease;
-    }
-
-    .nav-links.active li {
-        opacity: 1;
-        transform: translateY(0);
-        /* Staggered animation handled by JS usually, but simple CSS transition works */
+    .nav-links {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
     }
 
     .nav-links a {
-        font-size: 1.5rem;
-        color: #fff;
+        color: #64748b;
+        font-size: 1.1rem;
+        font-weight: 600;
+        width: 100%;
+        display: block;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent-color);
     }
 }

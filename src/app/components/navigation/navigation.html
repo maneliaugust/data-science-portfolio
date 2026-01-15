@@ -7,14 +7,21 @@
             <span class="bar"></span>
         </button>
 
-        <ul class="nav-links" [class.active]="menuOpen">
-            <li><a [routerLink]="['/home']" routerLinkActive="active" (click)="closeMenu()">Home</a></li>
-            <li><a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">About</a></li>
-            <li><a [routerLink]="['/skills']" routerLinkActive="active" (click)="closeMenu()">Skills</a></li>
-            <li><a [routerLink]="['/projects']" routerLinkActive="active" (click)="closeMenu()">Projects</a></li>
-            <li><a [routerLink]="['/experience']" routerLinkActive="active" (click)="closeMenu()">Experience</a></li>
-            <li><a [routerLink]="['/education']" routerLinkActive="active" (click)="closeMenu()">Education</a></li>
-            <li><a [routerLink]="['/contact']" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
-        </ul>
+        <div class="nav-links-container" [class.active]="menuOpen">
+            <div class="mobile-menu-header">
+                <span class="mobile-brand">MANELISI</span>
+                <button class="close-btn" (click)="closeMenu()" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="nav-links">
+                <li><a [routerLink]="['/home']" routerLinkActive="active" (click)="closeMenu()">HOME</a></li>
+                <li><a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">ABOUT</a></li>
+                <li><a [routerLink]="['/skills']" routerLinkActive="active" (click)="closeMenu()">SKILLS</a></li>
+                <li><a [routerLink]="['/projects']" routerLinkActive="active" (click)="closeMenu()">PROJECTS</a></li>
+                <li><a [routerLink]="['/experience']" routerLinkActive="active" (click)="closeMenu()">EXPERIENCE</a>
+                </li>
+                <li><a [routerLink]="['/education']" routerLinkActive="active" (click)="closeMenu()">EDUCATION</a></li>
+                <li><a [routerLink]="['/contact']" routerLinkActive="active" (click)="closeMenu()">CONTACT</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
